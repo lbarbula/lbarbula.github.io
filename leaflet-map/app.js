@@ -35,6 +35,30 @@ $.get('areas.json').done(function(data){
       map.addControl(new L.control.layers(baseMaps,overlays, {"collapsed":true}));
     })
   //})
+  //Class Creator
+  class climbingArea{
+    constructor(name, north, west){
+      this.name = name;
+      this.west = north;
+      this.north = west;
+    }
+  }
+    //Class Form Submission Values
+    $('#form').submit(function(){
+    event.preventDefault();
+    var yourAreas = [];
+    var name = $('#name').val();
+    var north = parseInt($('#west').val());
+    var west = parseInt($('#north').val());
+    const area = new climbingArea(name, north, west)
+    //Addding Marker
+    var areaMarker = L.marker([west, north]);
+    console.log(areaMarker)
+    map.addLayer(areaMarker)
+    //Push to Array
+    yourAreas.push(area)
+    console.log(yourAreas)
+  })
 
   //Add Layers
   map.addLayer(thunderOutdoors)

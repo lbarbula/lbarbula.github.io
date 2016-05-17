@@ -1,0 +1,9 @@
+{
+  "firebase": "g25-Barbula-Q1",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

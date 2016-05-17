@@ -1,10 +1,6 @@
 /*************************
 Colors Used
-grey: #A3A3A2;
-
 *************************/
-
-
 /************************
 Body Features
 ************************/
@@ -12,66 +8,65 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
-}
+  height: 100vh; }
+
 /*************************
 Flex Containers
 *************************/
-.row{
+.row {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: row; }
+
 .column {
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
+
 /************************
 header
 ************************/
 .header {
   height: 10%;
-  width: 100%;
-}
+  width: 100%; }
+
 /***********************
 Main
 ***********************/
 .middle {
   height: 80%;
-  width: 100%;
-}
+  width: 100%; }
+
 #left {
-  background-color: hsl(60, 0%, 64%);
+  background-color: #a3a3a3;
   width: 20%;
-  flex-grow: 1;
-}
+  flex-grow: 1; }
+
 #right {
   width: 80%;
-  flex-grow: 4;
-}
+  flex-grow: 4; }
+
 /************************
 HTML Form Style
 ************************/
 form {
-  width: 79%;
-}
+  width: 79%; }
+
 input {
-  margin: 10px;
-}
+  margin: 10px; }
+
 #areaInfo {
-  background-color: white;
-}
+  background-color: white; }
+
 /**********************
 map
 **********************/
 #map {
   position: absolute;
   height: 79%;
-  width: 80%;
-}
+  width: 80%; }
+
 /**********************
 footer
 ***********************/
 .footer {
   height: 10%;
-  width: 100%;
-}
+  width: 100%; }

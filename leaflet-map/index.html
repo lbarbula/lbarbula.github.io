@@ -13,6 +13,7 @@
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="areas.json"></script>
     <script type="text/javascript" src="form.js"></script>
+    <script type="text/javascript" src="classes.js"></script>
     <title></title>
   </head>
   <body>
@@ -22,10 +23,12 @@
         <form id= "form" action="" method="get">
           <label for="climbingArea">Enter Climbing Area</label>
             <input id="area"  type="text" name="climbingArea"><br>
-            <label for="route">Enter Climbing Route</label>
-            <input type="text" name="route"><br>
-            <label for="grade">Select Grade</label>
-            <p id="areaInfo"></p><br>
+            <label for="route">Add Climbing Area Name</label>
+            <input id="name" type="text" name="addArea"><br>
+            <label for="north">Enter Coordinates North</label>
+            <input id="north" type="number" name="northCoords" placeholder="North"><br>
+            <label for="west">Enter Coordinates West</label>
+            <input id="west" type="number" name="westCoords" placeholder="West"><br>
             <input id= "submit" type="submit">
         </form>
       </div>

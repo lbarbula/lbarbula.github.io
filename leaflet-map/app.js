@@ -13,7 +13,7 @@ $(document).ready(function(){
 //Geo JSON data
 $.get('areas.json').done(function(data){
   var areas = data.features;
-  console.log(areas)
+  //console.log(areas)
   var name = [];
   var coordinates = [];
   for(var i = 0; i < areas.length; i++){

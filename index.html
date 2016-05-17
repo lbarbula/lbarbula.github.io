@@ -14,28 +14,31 @@
     <script type="text/javascript" src="form.js"></script>
     <script type="text/javascript" src="classes.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="style.js"></script>
     <title></title>
   </head>
   <body>
-    <div class="row header"></div>
-    <div class="row middle">
-      <div class="column" id="left">
-        <form id= "form" action="" method="get">
-          <label for="climbingArea">Enter Climbing Area</label>
-            <input id="area"  type="text" name="climbingArea"><br>
-            <label for="route">Add Climbing Area Name</label>
-            <input id="name" type="text" name="addArea"><br>
-            <label for="north">Enter Coordinates North(ex. 44)</label>
-            <input id="north" type="number" name="northCoords" placeholder="North"><br>
-            <label for="west">Enter Coordinates West(ex. -106)</label>
-            <input id="west" type="number" name="westCoords" placeholder="West"><br>
-            <input id= "submit" type="submit">
-        </form>
-      </div>
-      <div class="column" id="right">
-        <div id="map"></div>
-      </div>
-    </div>
+    <!-- Modal Window -->
+    <div class="modal-container"></div>
+      <div class="row header"></div>
+      <div class="row middle">
+        <div class="column" id="left">
+          <form id= "form" action="" method="get">
+            <label for="climbingArea">Enter Climbing Area</label>
+              <input id="area"  type="text" name="climbingArea"><br>
+              <label for="route">Add Climbing Area Name</label>
+              <input id="name" type="text" name="addArea"><br>
+              <label for="north">Enter Coordinates North(ex. 44)</label>
+              <input id="north" type="number" name="northCoords" placeholder="North"><br>
+              <label for="west">Enter Coordinates West(ex. -106)</label>
+              <input id="west" type="number" name="westCoords" placeholder="West"><br>
+              <input id= "submit" type="submit">
+          </form>
+        </div>
+        <div class="column" id="right">
+          <div id="map"></div>
+        </div>
+        </div>
     <div class="row footer"></div>
   </body>
     <!-- <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>

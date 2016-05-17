@@ -8,16 +8,18 @@
 //     }
 //   }
 //     //Class Form Submission Values
-//     $('#form').submit(function(){
+//     var submit = $('#form').submit(function(){
 //     event.preventDefault();
-//     var yourAreas = [];
+//     //var yourAreas = [];
 //     var name = $('#name').val();
 //     var west = parseInt($('#west').val());
 //     var north = parseInt($('#north').val());
 //     const area = new climbingArea(name, north, west)
+//     //Addding Marker
 //     var areaMarker = L.marker([north, west]);
 //     map.addLayer(areaMarker)
-//     yourAreas.push(area)
-//     console.log(yourAreas)
+//     //Push to Array
+//     //yourAreas.push(area)
+//     //console.log(yourAreas)
 //   })
 // })

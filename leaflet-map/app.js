@@ -8,30 +8,50 @@ $(document).ready(function(){
 });
 //Base Map Layers
   var thunderOutdoors = L.tileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 //Geo JSON data
 $.get('areas.json').done(function(data){
   var areas = data.features;
   //console.log(areas)
+
+  var geojsonMarkerOptions = {
+    radius: 15,
+    fillColor: "grey",
+    color: "grey",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.5
+};
+
   var name = [];
   var coordinates = [];
   for(var i = 0; i < areas.length; i++){
   name.push(areas[i].properties.name)
   coordinates.push(areas[i].geometry.coordinates)
   var geo = L.geoJson(data, {
-    onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.name);
-          }
-        })
+    // onEachFeature: function (feature, layer) {
+    //     layer.bindPopup(feature.properties.name);
+    //       }
+
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptions);
+    }
+    // onEachFeature: function (feature, layer) {
+    //     layer.bindPopup(feature.properties.name);
+    //       }
+  })
+
       }
       var baseMaps = {
         "Thunder outdoors": thunderOutdoors
       };
       var overlays = {
-        "markers": geo
+        //"markers": geo
+        "circles": geo
       };
       map.addLayer(geo);
+      //map.addLayer(geo);
       map.addControl(new L.control.layers(baseMaps,overlays, {"collapsed":true}));
     })
   //})
@@ -52,12 +72,12 @@ $.get('areas.json').done(function(data){
     var west = parseInt($('#north').val());
     const area = new climbingArea(name, north, west)
     //Addding Marker
-    var areaMarker = L.marker([west, north]);
+    var areaMarker = L.circle([west, north], 10500);
     console.log(areaMarker)
     map.addLayer(areaMarker)
     //Push to Array
     yourAreas.push(area)
-    console.log(yourAreas)
+    console.log(yourAreas[0].name)
   })
 
   //Add Layers

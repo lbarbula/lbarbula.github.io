@@ -30,16 +30,9 @@ $.get('areas.json').done(function(data){
   name.push(areas[i].properties.name)
   coordinates.push(areas[i].geometry.coordinates)
   var geo = L.geoJson(data, {
-    // onEachFeature: function (feature, layer) {
-    //     layer.bindPopup(feature.properties.name);
-    //       }
-
     pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
+        return L.circleMarker(latlng, geojsonMarkerOptions).bindPopup(feature.properties.name);
     }
-    // onEachFeature: function (feature, layer) {
-    //     layer.bindPopup(feature.properties.name);
-    //       }
   })
 
       }
@@ -47,11 +40,9 @@ $.get('areas.json').done(function(data){
         "Thunder outdoors": thunderOutdoors
       };
       var overlays = {
-        //"markers": geo
         "circles": geo
       };
       map.addLayer(geo);
-      //map.addLayer(geo);
       map.addControl(new L.control.layers(baseMaps,overlays, {"collapsed":true}));
     })
   //})

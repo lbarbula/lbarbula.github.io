@@ -10,10 +10,12 @@ $(document).ready(function(){
     //Class Form Submission Values
     $('#form').submit(function(){
     event.preventDefault();
+    var yourAreas = [];
     var name = $('#name').val();
-    var west = $('#west').val();
-    var north = $('#north').val();
+    var west = parseInt($('#west').val());
+    var north = parseInt($('#north').val());
     const area = new climbingArea(name, north, west)
-    console.log(area)
+    yourAreas.push(area)
+    console.log(yourAreas)
   })
 })

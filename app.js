@@ -48,10 +48,11 @@ $.get('areas.json').done(function(data){
   //})
   //Class Creator
   class climbingArea{
-    constructor(name, north, west){
+    constructor(name, north, west, route){
       this.name = name;
       this.west = north;
       this.north = west;
+      this.route = route;
     }
   }
     //Class Form Submission Values
@@ -61,16 +62,32 @@ $.get('areas.json').done(function(data){
     var name = $('#name').val();
     var north = parseInt($('#west').val());
     var west = parseInt($('#north').val());
-    const area = new climbingArea(name, north, west)
+    var route = $('#route').val();
+    const area = new climbingArea(name, north, west, route)
     //Addding Marker
+    //addArea(area);
     var areaMarker = L.circle([west, north], 10500);
-    console.log(areaMarker)
     map.addLayer(areaMarker)
     //Push to Array
     yourAreas.push(area)
-    console.log(yourAreas[0].name)
+    console.log(yourAreas)
   })
-
+  // function getAreas(){
+  //   var areas = localStorage.getItem('areas')
+  //   if(areas !== null){
+  //     return JSON.parse(areas)
+  //   } else {
+  //     return []
+  //   }
+  //   //areas = JSON.parse(areas)
+  //     //return areas
+  // }
+  // function addArea(area){
+  //   var areas = getAreas()
+  //   areas.push(area)
+  //   var jsonStr = JSON.stringify(areas)
+  //   localStorage.setItem('areas', jsonStr)
+  // }
   //Add Layers
   map.addLayer(thunderOutdoors)
 

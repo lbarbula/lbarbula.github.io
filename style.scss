@@ -3,6 +3,7 @@ Colors Used
 *************************/
 $grey: hsl(60, 0%, 64%);
 $fullwidth: 100%;
+$fullheight: 100%;
 
 
 
@@ -55,13 +56,18 @@ Modal Window
 .modal-container {
   position: absolute;
   width: $fullwidth;
-  height: 100%;
+  height: $fullheight;
   background-color: $grey;
   opacity: .5;
   z-index: 999;
 }
 .none {
   display: none
+}
+.modal {
+  text-align: center;
+  font-size: 24px;
+  font-family: futura;
 }
 /************************
 HTML Form Style

@@ -58,6 +58,11 @@ Modal Window
 .none {
   display: none; }
 
+.modal {
+  text-align: center;
+  font-size: 24px;
+  font-family: futura; }
+
 /************************
 HTML Form Style
 ************************/

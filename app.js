@@ -92,7 +92,7 @@ $(document).ready(function() {
                         location = i;
                         chosenLocation = areas[location].geometry.coordinates
                         map.panTo(chosenLocation.reverse());
-                        map.zoomIn(5)
+                        map.zoomIn(4)
                     }
                 }
             })
@@ -100,9 +100,25 @@ $(document).ready(function() {
         //some code that goes through get area and popoulates map
     var localData = JSON.parse(localStorage.getItem('areas'))
     $.each(localData, function(key, value) {
+            $('#areaNames').append("<option>" + value.name + "</option>")
+            $('#areaNames').change(function () {
+              var chosenArea = $('#areaNames option:selected').text();
+              console.log(chosenArea)
+              var chosenLocation;
+              var location;
+              if(chosenArea == value.name){
 
-            var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
-            map.addLayer(storedCircles)
+                chosenLocation = [value.north, value.west]
+                map.panTo(chosenLocation);
+                map.zoomIn(4)
+              }
+            })
+
+              var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
+              map.addLayer(storedCircles)
+            //})
+            // var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
+            // map.addLayer(storedCircles)
         })
         //Local Storage
     function getAreas() {

@@ -40,7 +40,7 @@ $.get('areas.json').done(function(data){
         "Thunder outdoors": thunderOutdoors
       };
       var overlays = {
-        "circles": geo
+        "Default": geo
       };
       map.addLayer(geo);
       map.addControl(new L.control.layers(baseMaps,overlays, {"collapsed":true}));
@@ -55,6 +55,14 @@ $.get('areas.json').done(function(data){
       this.route = route;
     }
   }
+    var loadedDataCircleOptions = {
+      radius: 15,
+      fillColor: "grey",
+      color: "grey",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.5
+  };
     //Class Form Submission Values
     $('#form').submit(function(){
     event.preventDefault();
@@ -65,29 +73,48 @@ $.get('areas.json').done(function(data){
     var route = $('#route').val();
     const area = new climbingArea(name, north, west, route)
     //Addding Marker
-    //addArea(area);
-    var areaMarker = L.circle([west, north], 10500);
+    addArea(area);
+    var areaMarker = L.circleMarker([west, north], loadedDataCircleOptions).bindPopup(name);
     map.addLayer(areaMarker)
     //Push to Array
-    yourAreas.push(area)
-    console.log(yourAreas)
+    // yourAreas.push(area)
+    // console.log(yourAreas)
   })
-  // function getAreas(){
-  //   var areas = localStorage.getItem('areas')
-  //   if(areas !== null){
-  //     return JSON.parse(areas)
-  //   } else {
-  //     return []
-  //   }
-  //   //areas = JSON.parse(areas)
-  //     //return areas
-  // }
-  // function addArea(area){
-  //   var areas = getAreas()
-  //   areas.push(area)
-  //   var jsonStr = JSON.stringify(areas)
-  //   localStorage.setItem('areas', jsonStr)
-  // }
+  //some code that goes through get area and popoulates map
+  var localData = JSON.parse(localStorage.getItem('areas'))
+  $.each(localData, function(key, value){
+
+  //   var loadedDataCircleOptions = {
+  //     radius: 15,
+  //     fillColor: "grey",
+  //     color: "grey",
+  //     weight: 1,
+  //     opacity: 1,
+  //     fillOpacity: 0.5
+  // };
+
+    var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
+    map.addLayer(storedCircles)
+    console.log(key + " " + value.name, value.north, value.west, value.route)
+  })
+  //Local Storage
+  function getAreas(){
+    var areas = localStorage.getItem('areas')
+    if(areas.length !== 0){
+      return JSON.parse(areas)
+    } else {
+      return []
+    }
+    //console.log(areas.value[0])
+    //areas = JSON.parse(areas)
+    //return areas
+  }
+  function addArea(area){
+    var areas = getAreas()
+    areas.push(area)
+    var jsonStr = JSON.stringify(areas)
+    localStorage.setItem('areas', jsonStr)
+  }
   //Add Layers
   map.addLayer(thunderOutdoors)
 

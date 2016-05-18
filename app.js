@@ -13,8 +13,7 @@ $(document).ready(function(){
 //Geo JSON data
 $.get('areas.json').done(function(data){
   var areas = data.features;
-  //console.log(areas)
-
+//Set JSON Markers
   var geojsonMarkerOptions = {
     radius: 15,
     fillColor: "grey",
@@ -23,7 +22,7 @@ $.get('areas.json').done(function(data){
     opacity: 1,
     fillOpacity: 0.5
 };
-
+//Populating map with circle markers
   var name = [];
   var coordinates = [];
   for(var i = 0; i < areas.length; i++){
@@ -34,7 +33,7 @@ $.get('areas.json').done(function(data){
         return L.circleMarker(latlng, geojsonMarkerOptions).bindPopup(feature.properties.name);
     }
   })
-
+//Base Layers and Marker Layers
       }
       var baseMaps = {
         "Thunder outdoors": thunderOutdoors
@@ -45,7 +44,6 @@ $.get('areas.json').done(function(data){
       map.addLayer(geo);
       map.addControl(new L.control.layers(baseMaps,overlays, {"collapsed":true}));
     })
-  //})
   //Class Creator
   class climbingArea{
     constructor(name, north, west, route){
@@ -76,22 +74,10 @@ $.get('areas.json').done(function(data){
     addArea(area);
     var areaMarker = L.circleMarker([west, north], loadedDataCircleOptions).bindPopup(name);
     map.addLayer(areaMarker)
-    //Push to Array
-    // yourAreas.push(area)
-    // console.log(yourAreas)
   })
   //some code that goes through get area and popoulates map
   var localData = JSON.parse(localStorage.getItem('areas'))
   $.each(localData, function(key, value){
-
-  //   var loadedDataCircleOptions = {
-  //     radius: 15,
-  //     fillColor: "grey",
-  //     color: "grey",
-  //     weight: 1,
-  //     opacity: 1,
-  //     fillOpacity: 0.5
-  // };
 
     var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
     map.addLayer(storedCircles)
@@ -105,9 +91,6 @@ $.get('areas.json').done(function(data){
     } else {
       return []
     }
-    //console.log(areas.value[0])
-    //areas = JSON.parse(areas)
-    //return areas
   }
   function addArea(area){
     var areas = getAreas()
@@ -117,9 +100,6 @@ $.get('areas.json').done(function(data){
   }
   //Add Layers
   map.addLayer(thunderOutdoors)
-
 //Layer Objects
-  var baseMaps = {
-    "Thunder outdoors": thunderOutdoors
-  };
+
 })

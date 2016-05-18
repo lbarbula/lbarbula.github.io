@@ -31,10 +31,13 @@
       <div class="row middle">
         <div class="column" id="left">
           <form id= "form" action="" method="get">
-            <label for="climbingArea">Enter Climbing Area</label>
-              <input id="area"  type="text" name="climbingArea"><br>
-              <label for="route">Add Climbing Area Name</label>
-              <input id="name" type="text" name="addArea"><br>
+            <select id="areaNames" name="select">
+              <option value="climbingArea">Climbing Area</option>
+            </select>
+              <label for="name">Add Climbing Area Name</label>
+              <input id="name"  type="text" name="climbingArea"><br>
+              <label for="route">Add Climbing Route Name</label>
+              <input id="route" type="text" name="addArea"><br>
               <label for="north">Enter Coordinates North(ex. 44)</label>
               <input id="north" type="number" name="northCoords" placeholder="North" step="0.0001"><br>
               <label for="west">Enter Coordinates West(ex. -106)</label>
@@ -49,8 +52,4 @@
         </div>
     <div class="row footer"></div>
   </body>
-    <!-- <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script type="text/javasctipt" src="plugins/leaflet-providers-master/leaflet-providers.js"></script>
-    <script type="text/javascript" src="app.js"></script> -->
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" href=" https://galvanize-cors-proxy.herokuapp.com/http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <link rel="stylesheet" href="style.css">
@@ -12,44 +13,52 @@
     <script type="text/javasctipt" src="leaflet-providers-master/leaflet-providers.js"></script>
     <script type="text/javascript" src="areas.json"></script>
     <script type="text/javascript" src="form.js"></script>
-    <script type="text/javascript" src="classes.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="style.js"></script>
     <title></title>
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Modal Window -->
     <div class="modal-container">
-      <p class="modal">Let's enter some instructions<br>
-        Then, we will know what to do with this app.<br>
-        First, click on some circles to find out what areas have been climbed in.<br>
-        Next, feel free to add some areas of your own.<br>
-        Enter the area's name and it's gps coordinates<br>
-      </p>
+        <p class="modal">Let's enter some instructions
+            <br> Then, we will know what to do with this app.
+            <br> First, click on some circles to find out what areas have been climbed in.
+            <br> Next, feel free to add some areas of your own.
+            <br> Enter the area's name and it's gps coordinates
+            <br>
+        </p>
     </div>
-      <div class="row header"></div>
-      <div class="row middle">
+    <div class="row header"></div>
+    <div class="row middle">
         <div class="column" id="left">
-          <form id= "form" action="" method="get">
-            <select id="areaNames" name="select">
-              <option value="climbingArea">Climbing Area</option>
-            </select>
-              <label for="name">Add Climbing Area Name</label>
-              <input id="name"  type="text" name="climbingArea"><br>
-              <label for="route">Add Climbing Route Name</label>
-              <input id="route" type="text" name="addArea"><br>
-              <label for="north">Enter Coordinates North(ex. 44)</label>
-              <input id="north" type="number" name="northCoords" placeholder="North" step="0.0001"><br>
-              <label for="west">Enter Coordinates West(ex. -106)</label>
-              <input id="west" type="number" name="westCoords" placeholder="West" step="0.0001"><br>
-              <a href="http://www.latlong.net/"><p>Find Coordinates Here</p></a>
-              <input id= "submit" type="submit">
-          </form>
+            <form id="form" action="" method="get">
+                <select id="areaNames" name="select">
+                    <option value="climbingArea">Climbing Area</option>
+                </select>
+                <label for="name">Add Climbing Area Name</label>
+                <input id="name" type="text" name="climbingArea">
+                <br>
+                <label for="route">Add Climbing Route Name</label>
+                <input id="route" type="text" name="addArea">
+                <br>
+                <label for="north">Enter Coordinates North(ex. 44)</label>
+                <input id="north" type="number" name="northCoords" placeholder="North" step="0.0001">
+                <br>
+                <label for="west">Enter Coordinates West(ex. -106)</label>
+                <input id="west" type="number" name="westCoords" placeholder="West" step="0.0001">
+                <br>
+                <a href="http://www.latlong.net/">
+                    <p>Find Coordinates Here</p>
+                </a>
+                <input id="submit" type="submit">
+            </form>
         </div>
         <div class="column" id="right">
-          <div id="map"></div>
+            <div id="map"></div>
         </div>
-        </div>
+    </div>
     <div class="row footer"></div>
-  </body>
+</body>
+
 </html>

@@ -13,6 +13,7 @@ $(document).ready(function() {
         }
         $.each(localData, function(key, value) {
             $('.area-list').append('<a href="#"><p>' + value.area + '</p></a>')
+
             $('.area-list > a').on('click', function() {
                 var selected = $(this).text()
 
@@ -25,6 +26,7 @@ $(document).ready(function() {
                     $('#pop-up').append('<p>' + "No routes for this area" + '</p>')
                     $('#pop-up').toggle()
                     alert("whoops")
+
 
                 }
                 console.log(selected)

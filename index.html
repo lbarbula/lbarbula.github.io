@@ -55,14 +55,15 @@
             <div id="map"></div>
             <!-- Modal Pop-up Window -->
             <div class="pop-up">
-                <p class="viewRoutes">Click Here to View Routes</p>
+                <a href="area-list.html"><p class="viewRoutes">Click Here to View Routes</p></a>
                 <a href="#"><p class="addRoute">Click Here to Add Route</p></a>
+
             </div>
             <div class="add-route">
                 <form class="route-information">
-                    <input id="area" type="text" placeholder="Enter Area">
+                    <input id="area" type="text" placeholder="Enter Area" value=''>
                     <br>
-                    <input id="route" type="text" placeholder="Enter Route">
+                    <input id="routeName" type="text" placeholder="Enter Route">
                     <br>
                     <select id="grade">
                         <option value="5.7">5.7</option>
@@ -79,6 +80,7 @@
                     <br>
                     <input id="send" type="submit">
                 </form>
+                <a href="#"><p id="close">Close</p></a>
             </div>
         </div>
     </div>

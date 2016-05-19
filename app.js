@@ -80,20 +80,21 @@ $(document).ready(function() {
         })
         //Route Object Generator
     class newRoute {
-        constructor(area, name, grade) {
+        constructor(area, routeName, grade, beta) {
             this.area = area;
-            this.name = route;
+            this.routeName = routeName;
             this.grade = grade;
+            this.beta = beta;
         }
     }
     //Route Form Submission Values
     $('.route-information').submit(function() {
         event.preventDefault();
         var area = $('#area').val();
-        var name = $('#route').val();
+        var routeName = $('#routeName').val();
         var grade = $('#grade').val();
         var beta = $('#beta').val();
-        const route = new newRoute(area, name, grade, beta)
+        const route = new newRoute(area, routeName, grade, beta)
         addRoute(route)
         console.log(route)
     })
@@ -141,12 +142,20 @@ $(document).ready(function() {
             storedCircles.on('click', function(event) {
                 $('.pop-up').toggle()
 
-                map.on('click', function(event) {
-                    $('.pop-up').toggle()
-                })
+                // map.on('click', function(event) {
+                //     $('.pop-up').toggle()
+                // })
             })
             $('.addRoute').on('click', function(){
               $('.add-route').toggle()
+              //$('add-route').on('click', function() {
+                console.log($('.leaflet-popup-content-wrapper').text())
+                $('#area').attr('value', $('.leaflet-popup-content-wrapper').text())
+              //})
+              $('#close').on('click', function(){
+                $('.add-route').toggle()
+                $('.pop-up').toggle();
+              })
             })
             map.addLayer(storedCircles)
 

@@ -5,18 +5,7 @@ $(document).ready(function() {
         for (var i = 0; i < areas.length; i++) {
             $(".area-list").append("<a href='#'><p id ='areas'>" + areas[i].properties.name + "</p></a>")
         }
-        // var selected;
-        // $('.area-list > a').on('click', function() {
-        //   selected = $(this).text()
-        //   if(selected == value.area){
-        //     console.log(value.beta)
-        //   } else {
-        //     alert("No routes for this area")
-        //   }
-        //   console.log(selected)
-        // })
-        // var list = $('.area-list > p')
-        // console.log(list)
+
         var json = localStorage.getItem('routes')
         var localData;
         if (json) {
@@ -24,21 +13,25 @@ $(document).ready(function() {
         }
         $.each(localData, function(key, value) {
             $('.area-list').append('<a href="#"><p>' + value.area + '</p></a>')
-            var selected;
+
             $('.area-list > a').on('click', function() {
-              selected = $(this).text()
-              if(selected === value.area){
-                $('#pop-up').append('<p>' + value.routeName + '</p>')
-                $('#pop-up').append('<p>' + value.beta + '</p>')
-                $('#pop-up').append('<p>' + value.grad + '</p>')
-              } else {
-                alert ("No routes for this area")
-              }
-              console.log(selected)
+                var selected = $(this).text()
+
+                if (selected == value.area) {
+                    alert("you got it")
+                    $('#pop-up').append('<p>' + value.routeName + '</p><br>' + '<p>' + value.beta + '</p><br>' + value.grade + '</p>')
+                    // $('#pop-up').append('<p>' + value.beta + '</p>')
+                    // $('#pop-up').append('<p>' + value.grade + '</p>')
+                    $('#pop-up').toggle()
+
+                } else if(selected !== value.area) {
+                    $('#pop-up').append('<p>' + "No routes for this area" + '</p>')
+                }
+                console.log(selected)
             })
 
-          })
         })
+    })
 
 
     //Local Storage

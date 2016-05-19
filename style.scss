@@ -47,11 +47,12 @@ Main
   flex-grow: 1;
 }
 #right {
+  display: flex;
   width: 80%;
   flex-grow: 4;
 }
 /************************
-Modal Window
+Modal Windows
 *************************/
 .modal-container {
   position: absolute;
@@ -68,6 +69,16 @@ Modal Window
   text-align: center;
   font-size: 24px;
   font-family: futura;
+}
+.pop-up {
+  display: none;
+  text-align: center;
+  align-self: center;
+  width: 33%;
+  height: 33%;
+  background-color: $grey;
+  opacity: .8;
+  z-index: 999
 }
 /************************
 HTML Form Style

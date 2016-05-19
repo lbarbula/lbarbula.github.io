@@ -35,6 +35,9 @@ $(document).ready(function() {
                     })
                     //Base Layers and Marker Layers
             }
+            geo.on('click', function(event) {
+                $('.pop-up').toggle()
+            })
             var baseMaps = {
                 "Thunder outdoors": thunderOutdoors
             };
@@ -52,7 +55,6 @@ $(document).ready(function() {
             this.name = name;
             this.west = north;
             this.north = west;
-            this.route = route;
         }
     }
     var loadedDataCircleOptions = {
@@ -70,14 +72,33 @@ $(document).ready(function() {
             var name = $('#name').val();
             var north = parseInt($('#west').val());
             var west = parseInt($('#north').val());
-            var route = $('#route').val();
-            const area = new climbingArea(name, north, west, route)
+            const area = new climbingArea(name, north, west)
                 //Addding Marker
             addArea(area);
             var areaMarker = L.circleMarker([west, north], loadedDataCircleOptions).bindPopup(name);
             map.addLayer(areaMarker)
         })
-        //PanTo Feature
+        //Route Object Generator
+    class newRoute {
+        constructor(area, name, grade) {
+            this.area = area;
+            this.name = route;
+            this.grade = grade;
+        }
+    }
+    //Route Form Submission Values
+    $('.route-information').submit(function() {
+        event.preventDefault();
+        var area = $('#area').val();
+        var name = $('#route').val();
+        var grade = $('#grade').val();
+        var beta = $('#beta').val();
+        const route = new newRoute(area, name, grade, beta)
+        addRoute(route)
+        console.log(route)
+    })
+
+    //PanTo Feature
     $.get('areas.json').done(function(data) {
             var areas = data.features;
             for (var i = 0; i < areas.length; i++) {
@@ -98,32 +119,51 @@ $(document).ready(function() {
             })
         })
         //some code that goes through get area and popoulates map
-    var localData = JSON.parse(localStorage.getItem('areas'))
+    var json = localStorage.getItem('areas')
+    var localData;
+    if (json) {
+      localData = JSON.parse(json)
+    }
     $.each(localData, function(key, value) {
             $('#areaNames').append("<option>" + value.name + "</option>")
-            $('#areaNames').change(function () {
-              var chosenArea = $('#areaNames option:selected').text();
-              console.log(chosenArea)
-              var chosenLocation;
-              var location;
-              if(chosenArea == value.name){
-
-                chosenLocation = [value.north, value.west]
-                map.panTo(chosenLocation);
-                map.zoomIn(4)
-              }
+            $('#areaNames').change(function() {
+                var chosenArea = $('#areaNames option:selected').text();
+                var chosenLocation;
+                var location;
+                if (chosenArea == value.name) {
+                    chosenLocation = [value.north, value.west]
+                    map.panTo(chosenLocation);
+                    map.zoomIn(4)
+                }
             })
 
-              var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
-              map.addLayer(storedCircles)
-            //})
-            // var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
-            // map.addLayer(storedCircles)
+            var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
+            storedCircles.on('click', function(event) {
+                $('.pop-up').toggle()
+            })
+            map.addLayer(storedCircles)
+
         })
         //Local Storage
+    function getRoutes(){
+      var routes = localStorage.getItem('routes')
+      if(routes) {
+        return JSON.parse(routes)
+      } else {
+        return []
+      }
+    }
+
+    function addRoute (route) {
+      var routes = getRoutes ()
+      routes.push(route)
+      var jsonStrR = JSON.stringify(routes)
+      localStorage.setItem('routes', jsonStrR)
+    }
+
     function getAreas() {
         var areas = localStorage.getItem('areas')
-        if (areas.length !== 0) {
+        if (areas) {
             return JSON.parse(areas)
         } else {
             return []
@@ -131,13 +171,12 @@ $(document).ready(function() {
     }
 
     function addArea(area) {
-        // var areas = getAreas()
-        // areas.push(area)
+        var areas = getAreas()
+        areas.push(area)
         var jsonStr = JSON.stringify(areas)
         localStorage.setItem('areas', jsonStr)
     }
     //Add Layers
     map.addLayer(thunderOutdoors)
         //Layer Objects
-
 })

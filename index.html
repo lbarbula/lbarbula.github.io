@@ -39,9 +39,6 @@
                 <label for="name">Add Climbing Area Name</label>
                 <input id="name" type="text" name="climbingArea">
                 <br>
-                <label for="route">Add Climbing Route Name</label>
-                <input id="route" type="text" name="addArea">
-                <br>
                 <label for="north">Enter Coordinates North(ex. 44)</label>
                 <input id="north" type="number" name="northCoords" placeholder="North" step="0.0001">
                 <br>
@@ -56,6 +53,25 @@
         </div>
         <div class="column" id="right">
             <div id="map"></div>
+            <!-- Modal Pop-up Window -->
+            <div class="pop-up">
+              <form class="route-information">
+                <input id="area" type="text" placeholder="Enter Area"><br>
+                <input id="route" type="text" placeholder="Enter Route"><br>
+                <select id="grade">
+                  <option value="5.7">5.7</option>
+                  <option value="5.8">5.8</option>
+                  <option value="5.9">5.9</option>
+                  <option value="5.10">5.10</option>
+                  <option value="5.11">5.11</option>
+                  <option value="5.12">5.12</option>
+                  <option value="5.13">5.13</option>
+                  <option value="5.14">5.14</option>
+                </select><br>
+                <textarea id="beta" rows="5">Enter Beta</textarea><br>
+                <input id="send" type="submit">
+              </form>
+            </div>
         </div>
     </div>
     <div class="row footer"></div>

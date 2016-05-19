@@ -122,7 +122,7 @@ $(document).ready(function() {
     var json = localStorage.getItem('areas')
     var localData;
     if (json) {
-      localData = JSON.parse(json)
+        localData = JSON.parse(json)
     }
     $.each(localData, function(key, value) {
             $('#areaNames').append("<option>" + value.name + "</option>")
@@ -140,25 +140,32 @@ $(document).ready(function() {
             var storedCircles = L.circleMarker([value.north, value.west], loadedDataCircleOptions).bindPopup(value.name);
             storedCircles.on('click', function(event) {
                 $('.pop-up').toggle()
+
+                map.on('click', function(event) {
+                    $('.pop-up').toggle()
+                })
+            })
+            $('.addRoute').on('click', function(){
+              $('.add-route').toggle()
             })
             map.addLayer(storedCircles)
 
         })
         //Local Storage
-    function getRoutes(){
-      var routes = localStorage.getItem('routes')
-      if(routes) {
-        return JSON.parse(routes)
-      } else {
-        return []
-      }
+    function getRoutes() {
+        var routes = localStorage.getItem('routes')
+        if (routes) {
+            return JSON.parse(routes)
+        } else {
+            return []
+        }
     }
 
-    function addRoute (route) {
-      var routes = getRoutes ()
-      routes.push(route)
-      var jsonStrR = JSON.stringify(routes)
-      localStorage.setItem('routes', jsonStrR)
+    function addRoute(route) {
+        var routes = getRoutes()
+        routes.push(route)
+        var jsonStrR = JSON.stringify(routes)
+        localStorage.setItem('routes', jsonStrR)
     }
 
     function getAreas() {

@@ -80,6 +80,9 @@ Modal Windows
   opacity: .8;
   z-index: 999
 }
+.add-route {
+  @extend .pop-up;
+}
 /************************
 HTML Form Style
 ************************/

@@ -64,7 +64,7 @@ Modal Windows
   font-size: 24px;
   font-family: futura; }
 
-.pop-up {
+.pop-up, .add-route {
   display: none;
   text-align: center;
   align-self: center;

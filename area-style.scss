@@ -12,3 +12,11 @@ body {
   opacity: .8;
   z-index: 999
 }
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}

@@ -146,16 +146,16 @@ $(document).ready(function() {
                 //     $('.pop-up').toggle()
                 // })
             })
-            $('.addRoute').on('click', function(){
-              $('.add-route').toggle()
-              //$('add-route').on('click', function() {
+            $('.addRoute').on('click', function() {
+                $('.add-route').toggle()
+                    //$('add-route').on('click', function() {
                 console.log($('.leaflet-popup-content-wrapper').text())
                 $('#area').attr('value', $('.leaflet-popup-content-wrapper').text())
-              //})
-              $('#close').on('click', function(){
-                $('.add-route').toggle()
-                $('.pop-up').toggle();
-              })
+                    //})
+                $('#close').on('click', function() {
+                    $('.add-route').toggle()
+                    $('.pop-up').toggle();
+                })
             })
             map.addLayer(storedCircles)
 

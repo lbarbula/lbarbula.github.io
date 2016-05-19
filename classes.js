@@ -13,19 +13,19 @@ $(document).ready(function() {
         }
         $.each(localData, function(key, value) {
             $('.area-list').append('<a href="#"><p>' + value.area + '</p></a>')
-
             $('.area-list > a').on('click', function() {
                 var selected = $(this).text()
 
-                if (selected == value.area) {
+                if (selected.toLowerCase() == value.area.toLowerCase()) {
                     alert("you got it")
                     $('#pop-up').append('<p>' + value.routeName + '</p><br>' + '<p>' + value.beta + '</p><br>' + value.grade + '</p>')
-                    // $('#pop-up').append('<p>' + value.beta + '</p>')
-                    // $('#pop-up').append('<p>' + value.grade + '</p>')
                     $('#pop-up').toggle()
 
-                } else if(selected !== value.area) {
+                } else  {
                     $('#pop-up').append('<p>' + "No routes for this area" + '</p>')
+                    $('#pop-up').toggle()
+                    alert("whoops")
+
                 }
                 console.log(selected)
             })

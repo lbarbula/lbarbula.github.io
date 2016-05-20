@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href=" https://galvanize-cors-proxy.herokuapp.com/http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Stylesheets/style.css">
 
     <script type="text/javascript" src=" https://galvanize-cors-proxy.herokuapp.com/http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
     <script src=" https://galvanize-cors-proxy.herokuapp.com/http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -12,10 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javasctipt" src="leaflet-providers-master/leaflet-providers.js"></script>
     <script type="text/javascript" src="areas.json"></script>
-    <script type="text/javascript" src="form.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="style.js"></script>
-    <title></title>
+    <title>Tick List</title>
 </head>
 
 <body>
@@ -39,7 +38,7 @@
     </div>
     <div class="row middle">
         <div class="column" id="left">
-            <form id="form" action="" method="get">
+            <form id="form" action="hello" method="get">
                 <select id="areaNames" name="select">
                     <option value="climbingArea">Climbing Area</option>
                 </select>
@@ -67,7 +66,7 @@
 
             </div>
             <div class="add-route">
-                <form class="route-information">
+                <form class="route-information" action="hello">
                     <input id="area" type="text" placeholder="Enter Area" value=''>
                     <br>
                     <input id="routeName" type="text" placeholder="Enter Route">

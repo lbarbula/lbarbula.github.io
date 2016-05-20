@@ -5,22 +5,6 @@ $(document).ready(function() {
         for (var i = 0; i < areas.length; i++) {
             $(".area-list").append("<option>" + areas[i].properties.name + "</option>")
         }
-        $('.area-list').change(function() {
-            var chosenArea = $('.area-list option:selected').text();
-            //for (var i = 0; i < areas.length; i++) {
-                if (chosenArea == areas[i].properties.name) {
-
-                    $('#pop-up').append('<p>' + areas[i].properties.name + '</p><br>' + '<p>' + value.beta + '</p><br>' + value.grade + '</p>')
-                    $('#pop-up').toggle()
-
-                } else {
-                    $('#pop-up').append('<p>' + "No routes for this area" + '</p>')
-                    $('#pop-up').toggle()
-                    alert("whoops")
-
-                }
-            //}
-        })
     })
     var json = localStorage.getItem('routes')
     var localData;

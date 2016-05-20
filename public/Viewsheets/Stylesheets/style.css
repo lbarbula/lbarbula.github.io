@@ -1,6 +1,3 @@
-/*************************
-Colors Used
-*************************/
 /************************
 Body Features
 ************************/
@@ -9,7 +6,7 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  font-family: futura; }
+  font-family: futura, sans-serif; }
 
 /*************************
 Flex Containers
@@ -35,7 +32,7 @@ header
   color: white; }
 
 h1 {
-  font-family: rockwell;
+  font-family: rockwell, sans-serif;
   margin-left: 12px; }
 
 /***********************
@@ -55,36 +52,16 @@ Main
   width: 80%;
   flex-grow: 4; }
 
-/************************
-Modal Windows
-*************************/
-.modal-container {
-  position: absolute;
+/**********************
+footer
+***********************/
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 10%;
   width: 100%;
-  height: 100%;
-  background-color: #a3a3a3;
-  opacity: .8;
-  z-index: 999; }
-
-.none {
-  display: none; }
-
-.modal {
-  text-align: center;
-  font-size: 24px;
-  font-family: futura; }
-
-.pop-up, .add-route {
-  display: none;
-  text-align: center;
-  align-self: center;
-  width: 33%;
-  height: 33%;
   background-color: #5a5859;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  opacity: .8;
-  z-index: 999; }
+  color: white; }
 
 /************************
 HTML Form Style
@@ -107,13 +84,33 @@ map
   height: 80%;
   width: 80%; }
 
-/**********************
-footer
-***********************/
-.footer {
-  display: flex;
-  justify-content: center;
-  height: 10%;
+/************************
+Modal Windows
+*************************/
+.modal-container {
+  position: absolute;
   width: 100%;
+  height: 100%;
+  background-color: #a3a3a3;
+  opacity: .8;
+  z-index: 999; }
+
+.none {
+  display: none; }
+
+.modal {
+  text-align: center;
+  font-size: 24px;
+  font-family: futura, sans-serif; }
+
+.pop-up, .add-route {
+  display: none;
+  text-align: center;
+  align-self: center;
+  width: 33%;
+  height: 33%;
   background-color: #5a5859;
-  color: white; }
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  opacity: .8;
+  z-index: 999; }

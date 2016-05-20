@@ -3,17 +3,7 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  font-family: futura; }
-
-#pop-up {
-  display: none;
-  text-align: center;
-  align-self: center;
-  width: 50%;
-  height: 50%;
-  background-color: #a3a3a3;
-  border-radius: 5px;
-  z-index: 999; }
+  font-family: futura, sans-serif; }
 
 /******
 Rows
@@ -66,13 +56,23 @@ Rows
   font-size: 24px; }
 
 h2 {
-  font-family: rockwell; }
+  font-family: rockwell, sans-serif; }
 
 a {
   text-decoration: none; }
 
 p {
-  font-family: futura; }
+  font-family: futura, sans-serif; }
 
 .end {
   color: white; }
+
+#pop-up {
+  display: none;
+  text-align: center;
+  align-self: center;
+  width: 50%;
+  height: 50%;
+  background-color: #a3a3a3;
+  border-radius: 5px;
+  z-index: 999; }

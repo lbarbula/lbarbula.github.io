@@ -4,7 +4,7 @@ Colors Used
 $grey: hsl(60, 0%, 64%);
 $fullwidth: 100%;
 $fullheight: 100%;
-
+$black: hsl(330, 1%, 35%);
 /************************
 Body Features
 ************************/
@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  font-family: futura;
 }
 /*************************
 Flex Containers
@@ -29,8 +30,17 @@ Flex Containers
 header
 ************************/
 .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   height: 10%;
   width: $fullwidth;
+  background-color: $black;
+  color: white;
+}
+h1 {
+  font-family: rockwell;
+  margin-left: 12px;
 }
 /***********************
 Main
@@ -57,7 +67,7 @@ Modal Windows
   width: $fullwidth;
   height: $fullheight;
   background-color: $grey;
-  opacity: .5;
+  opacity: .8;
   z-index: 999;
 }
 .none {
@@ -74,7 +84,9 @@ Modal Windows
   align-self: center;
   width: 33%;
   height: 33%;
-  background-color: $grey;
+  background-color: $black;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   opacity: .8;
   z-index: 999
 }
@@ -88,7 +100,8 @@ form {
   width: 79%;
 }
 input {
-  margin: 10px;
+  margin: 5px;
+  border-radius: 5px;
 }
 #areaInfo {
   background-color: white;
@@ -98,13 +111,17 @@ map
 **********************/
 #map {
   position: absolute;
-  height: 79%;
+  height: 80%;
   width: 80%;
 }
 /**********************
 footer
 ***********************/
 .footer {
+  display: flex;
+  justify-content: center;
   height: 10%;
   width: $fullwidth;
+  background-color: $black;
+  color: white;
 }

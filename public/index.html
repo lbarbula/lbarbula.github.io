@@ -21,15 +21,22 @@
 <body>
     <!-- Modal Window -->
     <div class="modal-container">
-        <p class="modal">Let's enter some instructions
-            <br> Then, we will know what to do with this app.
-            <br> First, click on some circles to find out what areas have been climbed in.
-            <br> Next, feel free to add some areas of your own.
-            <br> Enter the area's name and it's gps coordinates
+        <p class="modal">Instructions:
+            <br> Locate a desired climbing area in the right hand column, or, add a new area with the input areas. If your desired area is in the Northern hemisphere, the lattitude is positive. If it is in the Southern hemisphere that number is negative. If your location is in the Western hemisphere, its longitude is negative. If it is the Eastern, it is positive. If you don't know, you can find your coordinates with the search option at the bottom of the column.
             <br>
+            <br> Locat your desired area in the drop down menu.
+            <br>
+            <br> Click on the marker associated with your area.
+            <br>
+            <br> Enter a new route, or continue on to pre-existing route information.
+            <br>
+            <br> Click anywhere to begin.
         </p>
     </div>
-    <div class="row header"></div>
+    <div class="row header">
+      <h1 class="title">Tick List</h1>
+      <p>An interactive mapping application for tracking and viewing climbing areas and routes.</p>
+    </div>
     <div class="row middle">
         <div class="column" id="left">
             <form id="form" action="" method="get">
@@ -40,10 +47,10 @@
                 <input id="name" type="text" name="climbingArea">
                 <br>
                 <label for="north">Enter Coordinates North(ex. 44)</label>
-                <input id="north" type="number" name="northCoords" placeholder="North" step="0.0001">
+                <input id="north" type="number" name="northCoords" placeholder="North" step="0.00000000001">
                 <br>
                 <label for="west">Enter Coordinates West(ex. -106)</label>
-                <input id="west" type="number" name="westCoords" placeholder="West" step="0.0001">
+                <input id="west" type="number" name="westCoords" placeholder="West" step="0.00000000001">
                 <br>
                 <a href="http://www.latlong.net/">
                     <p>Find Coordinates Here</p>
@@ -84,7 +91,9 @@
             </div>
         </div>
     </div>
-    <div class="row footer"></div>
+    <div class="row footer">
+      <p>2016</p>
+    </div>
 </body>
 
 </html>

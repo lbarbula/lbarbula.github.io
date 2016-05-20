@@ -1,0 +1,116 @@
+/************************
+Body Features
+************************/
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  font-family: futura, sans-serif; }
+
+/*************************
+Flex Containers
+*************************/
+.row {
+  display: flex;
+  flex-direction: row; }
+
+.column {
+  display: flex;
+  flex-direction: column; }
+
+/************************
+header
+************************/
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 10%;
+  width: 100%;
+  background-color: #5a5859;
+  color: white; }
+
+h1 {
+  font-family: rockwell, sans-serif;
+  margin-left: 12px; }
+
+/***********************
+Main
+***********************/
+.middle {
+  height: 80%;
+  width: 100%; }
+
+#left {
+  background-color: #a3a3a3;
+  width: 20%;
+  flex-grow: 1; }
+
+#right {
+  display: flex;
+  width: 80%;
+  flex-grow: 4; }
+
+/**********************
+footer
+***********************/
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  width: 100%;
+  background-color: #5a5859;
+  color: white; }
+
+/************************
+HTML Form Style
+************************/
+form {
+  width: 79%; }
+
+input {
+  margin: 5px;
+  border-radius: 5px; }
+
+#areaInfo {
+  background-color: white; }
+
+/**********************
+map
+**********************/
+#map {
+  position: absolute;
+  height: 80%;
+  width: 80%; }
+
+/************************
+Modal Windows
+*************************/
+.modal-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #a3a3a3;
+  opacity: .8;
+  z-index: 999; }
+
+.none {
+  display: none; }
+
+.modal {
+  text-align: center;
+  font-size: 24px;
+  font-family: futura, sans-serif; }
+
+.pop-up, .add-route {
+  display: none;
+  text-align: center;
+  align-self: center;
+  width: 33%;
+  height: 33%;
+  background-color: #5a5859;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  opacity: .8;
+  z-index: 999; }
